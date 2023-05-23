@@ -1,6 +1,6 @@
 import socket
 import json
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as xml
 
 HOST = 'localhost'
 PORT = 8000
@@ -32,7 +32,7 @@ def display(client, request):
 
 def Bollywood_xml(li):
     if "movies" in li and "songs" in li:
-        tree = ET.parse("movie_songs_bollywood.xml")
+        tree = xml.parse("movie_songs_bollywood.xml")
         root = tree.getroot()
         response = []
         for movie_element in root.findall("movie"):
@@ -42,7 +42,7 @@ def Bollywood_xml(li):
                 response.append(song_name)
         return json.dumps(response)
     else:
-        tree = ET.parse("movie_songs_bollywood.xml")
+        tree = xml.parse("movie_songs_bollywood.xml")
         root = tree.getroot()
         response = []
         for movie_element in root.findall("movie"):
@@ -53,7 +53,7 @@ def Bollywood_xml(li):
 
 def Hollywood_xml(li):
     if "movies" in li and "songs" in li:
-        tree = ET.parse("movie_songs_hollywood.xml")
+        tree = xml.parse("movie_songs_hollywood.xml")
         root = tree.getroot()
         response = []
         for movie_element in root.findall("movie"):
@@ -63,7 +63,7 @@ def Hollywood_xml(li):
                 response.append(song_name)
         return json.dumps(response)
     else:
-        tree = ET.parse("movie_songs_hollywood.xml")
+        tree = xml.parse("movie_songs_hollywood.xml")
         root = tree.getroot()
         response = []
         for movie_element in root.findall("movie"):
